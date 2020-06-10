@@ -21,6 +21,7 @@ public class UserInterface {
 			String input = scanner.nextLine();
 			System.out.println(" ");
 
+			// check of input is toegestaan
 			if (!(input.contains("a") || input.contains("b") || input.contains("c") || input.contains("d")
 					|| input.contains("e") || input.contains("f") || input.contains("h") || input.contains("q"))) {
 				System.out.println("Voer een geldige waarde in!");
@@ -31,7 +32,7 @@ public class UserInterface {
 			} else if (input.equals("q")) {
 				System.out.println("Spel gestopt");
 				break;
-			} else if (input.length() < 4 || input.length() > 4) {
+			} else if (input.length() < 4 || input.length() > 4) { // extra check voor incorrecte input
 				System.out.println("Voer 4 letters in om een code te vormen");
 			} else if (controller.checkCode(computerCode, input)) {
 				System.out.println("Code gekraakt!");

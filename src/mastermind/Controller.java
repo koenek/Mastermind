@@ -17,30 +17,27 @@ public class Controller {
 	}
 
 	public boolean checkCode(String[] computerCode, String playerInput) {
-		String[] playerCode = playerInput.split("|");
-
-		if (Arrays.toString(computerCode).equals(Arrays.toString(playerCode))) {
+		String[] playerCode = playerInput.split("|"); // Maak van String playerInput een array om makkelijker te vergelijken met Array computerCode
+	
+		if (Arrays.toString(computerCode).equals(Arrays.toString(playerCode))) { // als codes op alle posities equal zijn, return true
 			return true;
 		} else {
 			int pstnEqualCount = 0;
 			int pstnNotEqualCount = 0;
 
 			for (int i = 0; i < playerCode.length; i++) {
-
-				if (Arrays.asList(playerCode).contains(computerCode[i])) {
-					if (playerCode[i].equals(computerCode[i])) {
+				if (Arrays.asList(playerCode).contains(computerCode[i])) { // als playercode de huidige letter van computerCode bevat
+					if (playerCode[i].equals(computerCode[i])) { // check dan of hij op dezelfde positie staat, zo ja:
 						pstnEqualCount++;
-						pstnNotEqualCount--;
+					} else { // zo niet:
+						pstnNotEqualCount++;
 					}
-					pstnNotEqualCount++;
-				}
-				
+				}			
 			}
 			System.out.println(pstnEqualCount + " letters op de CORRECTE plaats");
-
 			System.out.println(pstnNotEqualCount + " letters correct, maar NIET op de correcte plaats");
 		}
-		return false;
+		return false; // return altijd false als niet alle letters overeen komen
 	}
 
 	public void callHelp() {
