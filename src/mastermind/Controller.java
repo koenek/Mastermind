@@ -42,7 +42,6 @@ public class Controller {
 				} else if (pc.contains(cc.get(i))) {
 					pstnNotEqualCount++;
 					String curVal = cc.get(i);
-					System.out.println("curVal: " + curVal);
 					pc.set(pc.indexOf(curVal), "x");
 					cc.set(cc.indexOf(curVal), "x");
 				}
