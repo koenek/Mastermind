@@ -1,10 +1,11 @@
 package mastermind;
 
 import java.util.Scanner;
+
 public class UserInterface {
 	private Controller controller;
 	private Scanner scanner;
-	
+
 	public UserInterface(Controller controller, Scanner scanner) {
 		this.controller = controller;
 		this.scanner = scanner;
@@ -13,8 +14,12 @@ public class UserInterface {
 	public void start() {
 		String[] computerCode = controller.generateCode();
 
-		System.out.println("Welkom bij MASTERMIND.\nTyp \"h\" voor hulp en \"q\" om te stoppen.");
-		System.out.println("Voer een code in van 4 karakters en druk op enter om te beginnen met spelen.\n");
+		System.out.println("Welkom bij MASTERMIND.");
+		System.out.println(
+				"De computer bedenkt een willekeurige 4-cijferige code bestaande uit de letters a, b, c, d, e, f. \n"
+						+ "Aan jou de taak deze code te kraken. Voer per beurt een 4-cijferige code in(bijvoorbeeld \"cdfa\") \n"
+						+ "Na elke beurt zal de computer je vertellen hoeveel letters correct zijn EN op de juiste plek staan. \n"
+						+ "Daarnaast vertelt hij je ook hoeveel correcte letters er zijn die niet op de juiste plek staan");
 
 		while (true) {
 			System.out.println("===================================================");
@@ -23,12 +28,8 @@ public class UserInterface {
 
 			// check of input is toegestaan
 			if (!(input.contains("a") || input.contains("b") || input.contains("c") || input.contains("d")
-					|| input.contains("e") || input.contains("f") || input.contains("h") || input.contains("q"))) {
+					|| input.contains("e") || input.contains("f") || input.contains("q"))) {
 				System.out.println("Voer een geldige waarde in!");
-			}
-
-			if (input.equals("h")) {
-				controller.callHelp();
 			} else if (input.equals("q")) {
 				System.out.println("Spel gestopt");
 				break;
@@ -41,5 +42,5 @@ public class UserInterface {
 			System.out.println(" ");
 		}
 	}
-	
+
 }
